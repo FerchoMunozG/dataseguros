@@ -15,3 +15,4 @@ use App\Http\Controllers\Agent\HomeController;
 */
 
 Route::get('', [HomeController::class, 'index']);
+Route::get('/partners', [HomeController::class, 'partners']);

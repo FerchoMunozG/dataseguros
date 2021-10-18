@@ -87,6 +87,10 @@ class User extends Authenticatable
 
     public function adminlte_image()
     {
-        return env('APP_URL') . '/storage/' . $this->profile_photo_path;
+        if ($this->profile_photo_path != NULL) {
+            return env('APP_URL') . '/storage/' . $this->profile_photo_path;
+        } else {
+            return 'https://ui-avatars.com/api/?name=' . $this->name . '&color=7F9CF5&background=EBF4FF';
+        }
     }
 }

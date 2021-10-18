@@ -249,7 +249,26 @@ return [
         [
             'text'        => 'Users',
             'url'         => 'admin/users',
-            'icon'        => 'far fa-fw fa-users',
+            'icon'        => 'far fa-fw fa-user',
+            'can'         => 'admin_access'
+        ],
+        [
+            'text'        => 'My Partners',
+            'url'         => 'agent/partners',
+            'icon'        => 'far fa-fw fa-user',
+            'can'         => 'agent_access'
+        ],
+        [
+            'text'        => 'My Promoters',
+            'url'         => 'partner/promoters',
+            'icon'        => 'far fa-fw fa-user',
+            'can'         => 'partner_access'
+        ],
+        [
+            'text'        => 'My Clients',
+            'url'         => 'promoter/clients',
+            'icon'        => 'far fa-fw fa-user',
+            'can'         => 'promoter_access'
         ],
         ['header' => 'account_settings'],
         [
