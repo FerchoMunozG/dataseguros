@@ -59,6 +59,20 @@
             <x-jet-input-error for="name" class="mt-2" />
         </div>
 
+        <!-- ID -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="id" value="{{ __('ID') }}" />
+            <x-jet-input id="id" type="text" class="mt-1 block w-full" value="{{auth()->user()->id_type . auth()->user()->id_doc}}" disabled/>
+            <x-jet-input-error for="id" class="mt-2" />
+        </div>
+
+        <!-- Bithday -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="birthday" value="{{ __('Birthday') }}" />
+            <x-jet-input id="birthday" type="date" class="mt-1 block w-full" wire:model.defer="state.birthday" autocomplete="birthday" />
+            <x-jet-input-error for="birthday" class="mt-2" />
+        </div>
+
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="email" value="{{ __('Email') }}" />

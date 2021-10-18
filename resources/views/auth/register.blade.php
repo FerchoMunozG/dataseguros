@@ -15,6 +15,35 @@
             </div>
 
             <div class="mt-4">
+                <x-jet-label for="id_type" value="{{ __('ID Type') }}" />
+                <select id="id_type"  class="block mt-1 w-full" name="id_type">
+                    <option value="CC">Cédula de Ciudadanía</option>
+                    <option value="CE">Cédula de Extranjería</option>
+                    <option value="NIT">Número de Identificación Tributaria</option>
+                    <option value="P">Pasaporte</option>
+                </select>
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="id_doc" value="{{ __('ID Document') }}" />
+                <x-jet-input id="id_doc" class="block mt-1 w-full" type="number" name="id_doc" :value="old('id_doc')" min=1 required autocomplete="id_doc" />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="birthday" value="{{ __('Birthday') }}" />
+                <x-jet-input id="birthday" class="block mt-1 w-full" type="date" name="birthday" :value="old('birthday')" required autocomplete="birthday" />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="marital_status" value="{{ __('Marital Status') }}" />
+                <select id="marital_status"  class="block mt-1 w-full" name="marital_status">
+                    @foreach (['Soltero', 'Casado', 'Unión Marital de Hecho'] as $item)
+                        <option value="{{$item}}">{{$item}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>

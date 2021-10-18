@@ -38,13 +38,21 @@
                             @enderror
                         </div>
 
+                        @php
+                            foreach (auth()->user()->roles as $role){
+                                $user_role_id = $role->id;
+                            }
+                        @endphp
+
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="roles" class="block font-medium text-sm text-gray-700">Roles</label>
                             <select name="roles[]" id="roles" class="form-multiselect block rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
                                 @foreach($roles as $id => $role)
-                                    <option value="{{ $id }}"{{ in_array($id, old('roles', $user->roles->pluck('id')->toArray())) ? ' selected' : '' }}>
-                                        {{ $role }}
-                                    </option>
+                                    @if ($id >= $user_role_id)
+                                        <option value="{{ $id }}"{{ in_array($id, old('roles', $user->roles->pluck('id')->toArray())) ? ' selected' : '' }}>
+                                            {{ $role }}
+                                        </option>
+                                    @endif
                                 @endforeach
                             </select>
                             @error('roles')
