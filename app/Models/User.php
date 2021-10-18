@@ -27,6 +27,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'parent_id',
     ];
 
     /**
@@ -72,5 +73,15 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    public function adminlte_profile_url()
+    {
+        return 'user/profile';
+    }
+
+    public function adminlte_image()
+    {
+        return env('APP_URL') . '/storage/' . $this->profile_photo_path;
     }
 }
