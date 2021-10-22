@@ -64,7 +64,27 @@ class UsersController extends Controller
             'parent_id' => auth()->user()->id,
         ])->save();
 
-        return redirect()->route('users.index');
+        foreach (auth()->user()->roles as $role) {
+            $user_role = strtolower($role->title);
+        }
+
+        switch ($user_role) {
+            case 'admin':
+                return redirect('/admin/users');
+                break;
+
+            case 'partner':
+                return redirect('/partner/promoters');
+                break;
+
+            case 'promoter':
+                return redirect('/promoter/clients');
+                break;
+
+            default:
+                return redirect()->route('users.index');
+                break;
+        }
     }
 
     public function destroy(User $user)
@@ -73,6 +93,26 @@ class UsersController extends Controller
 
         $user->delete();
 
-        return redirect()->route('users.index');
+        foreach (auth()->user()->roles as $role) {
+            $user_role = strtolower($role->title);
+        }
+
+        switch ($user_role) {
+            case 'admin':
+                return redirect('/admin/users');
+                break;
+
+            case 'partner':
+                return redirect('/partner/promoters');
+                break;
+
+            case 'promoter':
+                return redirect('/promoter/clients');
+                break;
+
+            default:
+                return redirect()->route('users.index');
+                break;
+        }
     }
 }

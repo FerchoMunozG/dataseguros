@@ -52,7 +52,7 @@
                                     @endphp
                                 @foreach ($users as $user)
                                     @foreach ($user->roles as $role)
-                                        @if ($role->id >= $user_role_id)
+                                        @if ($role->id > $user_role_id && ($user->parent_id == auth()->user()->id || $user->parent_id == NULL))
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                                     {{ $user->id_type . $user->id_doc }}

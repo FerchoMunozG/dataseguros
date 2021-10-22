@@ -270,6 +270,12 @@ return [
             'icon'        => 'far fa-fw fa-user',
             'can'         => 'promoter_access'
         ],
+        [
+            'text'        => 'My Policies',
+            'url'         => 'client/policies',
+            'icon'        => 'far fa-fw fa-file',
+            'can'         => 'client_access'
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
